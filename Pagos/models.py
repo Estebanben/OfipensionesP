@@ -11,4 +11,4 @@ class Pago(models.Model):
     
         
     def __str__(self):
-        return f'{self.estudiante.nombre} - {self.fecha} - {self.valor}'
+        return f''
