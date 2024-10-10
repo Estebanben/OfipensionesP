@@ -26,7 +26,7 @@ while True:
     fecha = datetime.now().strftime('%Y-%m-%d')
     factura_id = randint(1, 10)  # Simulated factura ID
     
-    # Create the payload
+     # Create the payload
     payload = json.dumps({
         "monto": monto,
         "tipo": tipo,
