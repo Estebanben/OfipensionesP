@@ -1,0 +1,17 @@
+<!-- Facturas/templates/Facturas/tu_template.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generar Facturas CSV</title>
+</head>
+<body>
+    <h1>Generar Facturas CSV</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Generar y Descargar CSV</button>
+    </form>
+</body>
+</html>
