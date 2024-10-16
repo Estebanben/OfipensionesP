@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generar Facturas CSV</title>
+    <title>Generar archivo CSV</title>
 </head>
 <body>
-    <h1>Generar Facturas CSV</h1>
+    <h2>Generar archivo CSV(se toman las facturas cuyas fechas de inicio estan entre el rango dado)</h2>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
