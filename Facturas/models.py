@@ -1,8 +1,20 @@
 from django.db import models
 
 from Usuarios.models import Estudiante
-from Facturas.models import CronogramaDePago
 from Colegios.models import Curso,Colegio
+
+
+class CronogramaDePago(models.Model):
+    id = models.AutoField(primary_key=True)
+    tipo = models.CharField(max_length=100)
+    nombre = models.CharField(max_length=100)
+    cursos = models.ManyToManyField(Curso)
+    colegio = models.ForeignKey(Colegio, on_delete=models.CASCADE)
+    
+    @staticmethod
+    def getFacturasRango(startDate,endDate,colegio_id):
+        return Factura.objects.filter(fechaIni__range= (startDate,endDate),cronograma__colegio__id=colegio_id)
+
 
 class Factura(models.Model):
     id = models.AutoField(primary_key=True)
@@ -34,16 +46,6 @@ class Producto(models.Model):
     def __str__(self):
         return self.nombre
 
-class CronogramaDePago(models.Model):
-    id = models.AutoField(primary_key=True)
-    tipo = models.CharField(max_length=100)
-    nombre = models.CharField(max_length=100)
-    cursos = models.ManyToManyField(Curso)
-    colegio = models.ForeignKey(Colegio, on_delete=models.CASCADE)
-    
-    @staticmethod
-    def getFacturasRango(startDate,endDate,colegio_id):
-        return Factura.objects.filter(fechaIni__range= (startDate,endDate),cronograma__colegio__id=colegio_id)
     
     
 
