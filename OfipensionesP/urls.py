@@ -22,4 +22,5 @@ urlpatterns = [
     path('home/',views.home),
     path('pagos/',include('Pagos.urls')),
     path('facturas/', include('Facturas.urls')),
+    path('health-check/', views.healthCheck)
 ]
