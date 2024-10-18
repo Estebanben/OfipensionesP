@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/',views.home),
     path('pagos/',include('Pagos.urls')),
+    path('health-check/', views.healthCheck)
 ]
