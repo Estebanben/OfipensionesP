@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from . import views
+from . import pruebas_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/',views.home),
     path('pagos/',include('Pagos.urls')),
+    path('pruebas/', pruebas_views.prueba_inyeccion_sql, name='prueba_inyeccion_sql'),
 ]
