@@ -10,9 +10,6 @@ def prueba_inyeccion_sql(request):
         precio = request.POST.get('precio')
         descripcion = request.POST.get('descripcion')
 
-        if not nombre or not precio or not descripcion:
-            return HttpResponse('Error: Faltan campos por rellenar.', status=400)
-
         for palabra in PALABRAS_RESERVADAS:
             if any(palabra in campo for campo in [nombre, precio, descripcion]):
                 return HttpResponse('Error: Entrada no permitida debido a palabras reservadas.', status=400)
