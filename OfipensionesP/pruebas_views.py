@@ -1,14 +1,20 @@
 from django.http import JsonResponse
-from Facturas.models import Factura
+from Pagos.models import Pago  # Asegúrate de que esta sea la ruta correcta de tu modelo
 
 def prueba_inyeccion_sql(request):
-    # Extrae parámetros de la URL
-    nombre = request.GET.get('nombre', 'Factura de prueba')
+    # Extrae los parámetros de la URL
+    nombre = request.GET.get('nombre', 'Pago de prueba')
     monto = request.GET.get('monto', '100')
-    
-    # Crea un objeto usando el ORM de Django
-    factura = Factura(nombre=nombre, monto=monto)
-    factura.save()  # ORM protege contra inyección SQL en este método
+    descripcion = request.GET.get('descripcion', 'Descripción de prueba')
+
+    # Crea un objeto usando el modelo Pago
+    pago = Pago(nombre=nombre, monto=monto, descripcion=descripcion)
+    pago.save()  # Guarda el pago en la base de datos
 
     # Responde con un JSON que confirma la creación
-    return JsonResponse({'status': 'Factura creada', 'nombre': factura.nombre, 'monto': factura.monto})
+    return JsonResponse({
+        'status': 'Pago creado',
+        'nombre': pago.nombre,
+        'monto': pago.monto,
+        'descripcion': pago.descripcion
+    })
