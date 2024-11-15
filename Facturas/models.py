@@ -23,10 +23,5 @@ class Producto(models.Model):
     valor = models.IntegerField()
     dscripcion = models.CharField(max_length=1000)
     
-    def __init__(self, nombre, valor, descripcion):
-        self.nombre = nombre
-        self.valor = valor
-        self.descripcion = descripcion
-    
     def __str__(self):
         return self.nombre
