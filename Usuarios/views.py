@@ -13,7 +13,7 @@ def estudiantes_list(request):
     if role == 'Padre':
         estudiantes = getEstudiantes(request)
         context = {'estudiantes_list': estudiantes}
-        return render(request, 'Estudiante/estudiantes_list.html', context)
+        return render(request, 'Estudiante/estudiantes.html', context)
     else:
         return HttpResponse('No tienes permisos para ver esta pagina')
     
