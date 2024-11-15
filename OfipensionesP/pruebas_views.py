@@ -8,7 +8,7 @@ def prueba_inyeccion_sql(request):
     descripcion = request.GET.get('descripcion', 'Descripción de prueba')
 
     # Crea un objeto usando el modelo Producto
-    producto = Producto(nombre=nombre, valor=valor, descripcion=descripcion)
+    producto = Producto(nombre=nombre, valor=valor, dscripcion=descripcion)
     producto.save()  # Guarda el producto en la base de datos
 
     # Responde con un JSON que confirma la creación
