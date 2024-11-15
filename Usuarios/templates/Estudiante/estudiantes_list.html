@@ -1,1 +1,30 @@
-<h1>Hola</h1>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hijos</title>
+</head>
+
+<body>
+    <h1>Hijos del Padre</h1>
+    {% if estudiantes_list %}
+    <ul>
+        {% for hijo in estudiantes_list %}
+        <li>
+            <strong>Nombre:</strong> {{ hijo.nombre }}<br>
+            <strong>Fecha de Nacimiento:</strong> {{ hijo.fecha_nacimiento }}<br>
+            <strong>Tipo de Documento:</strong> {{ hijo.tipo_d }}<br>
+            <strong>Documento:</strong> {{ hijo.documento }}<br>
+            <strong>Género:</strong> {{ hijo.get_genero_display }}<br>
+            <strong>Correo:</strong> {{ hijo.correo }}<br>
+            <strong>Saldo:</strong> {{ hijo.saldo }}
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No hay hijos asociados a este usuario.</p>
+    {% endif %}
+</body>
+
+</html>
