@@ -10,7 +10,7 @@
     <h1>Hijos del Padre</h1>
     {% if estudiantes %}
     <ul>
-        {% for estudiante in estudiantes %}
+        {% for estudiante in estudiantes_list %}
         <li>
             <strong>Nombre:</strong> {{ estudiante.nombre }}<br>
             <strong>Fecha de Nacimiento:</strong> {{ estudiante.fecha_nacimiento }}<br>
