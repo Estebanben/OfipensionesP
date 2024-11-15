@@ -1,8 +1,14 @@
-from ..models import Estudiante
+from ..models import Estudiante, Padre
 
 def getEstudiantes(request):
-    user = request.user
-    return Estudiante.objects.filter(padre=user)
+    # Obtener la instancia del padre asociada al usuario
+    try:
+        padre = Padre.objects.get(user=request.user)  # Ajusta el campo `user` según tu modelo Padre
+    except Padre.DoesNotExist:
+        return []  # Devuelve una lista vacía si no se encuentra al padre
+
+    # Filtrar estudiantes relacionados con este padre
+    return Estudiante.objects.filter(padre=padre)
 
 def createEstudiante(form):
     estudiante = estudiante.save()
