@@ -3,27 +3,87 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Hijos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Estudiantes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Hijos del Padre</h1>
+    <h1>Estudiantes Asociados</h1>
+
     {% if estudiantes_list %}
-    <ul>
-        {% for hijo in estudiantes_list %}
-        <li>
-            <strong>Nombre:</strong> {{ hijo.nombre }}<br>
-            <strong>Fecha de Nacimiento:</strong> {{ hijo.fecha_nacimiento }}<br>
-            <strong>Tipo de Documento:</strong> {{ hijo.tipo_d }}<br>
-            <strong>Documento:</strong> {{ hijo.documento }}<br>
-            <strong>Género:</strong> {{ hijo.get_genero_display }}<br>
-            <strong>Correo:</strong> {{ hijo.correo }}<br>
-            <strong>Saldo:</strong> {{ hijo.saldo }}
-        </li>
-        {% endfor %}
-    </ul>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Fecha de Nacimiento</th>
+                <th>Tipo de Documento</th>
+                <th>Documento</th>
+                <th>Género</th>
+                <th>Correo</th>
+                <th>Saldo</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for estudiante in estudiantes_list %}
+            <tr>
+                <td>{{ estudiante.nombre }}</td>
+                <td>{{ estudiante.fecha_nacimiento }}</td>
+                <td>{{ estudiante.tipo_d }}</td>
+                <td>{{ estudiante.documento }}</td>
+                <td>{{ estudiante.get_genero_display }}</td>
+                <td>{{ estudiante.correo }}</td>
+                <td>{{ estudiante.saldo }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
     {% else %}
-    <p>No hay hijos asociados a este usuario.</p>
+    <p>No tienes estudiantes asociados.</p>
     {% endif %}
 </body>
 
