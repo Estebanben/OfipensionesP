@@ -16,5 +16,5 @@ def prueba_inyeccion_sql(request):
         'status': 'Producto creado',
         'nombre': producto.nombre,
         'valor': producto.valor,
-        'descripcion': producto.descripcion
+        'descripcion': producto.dscripcion
     })
