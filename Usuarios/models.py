@@ -22,6 +22,7 @@ class Estudiante(models.Model):
     correo = models.EmailField(unique=True)
     contraseña = models.CharField(max_length=128)
     saldo = models.IntegerField()
+    padre = models.ForeignKey('Padre', on_delete=models.CASCADE, related_name='hijos')
 
     def __str__(self):
         return self.nombre

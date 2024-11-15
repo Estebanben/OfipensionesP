@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-81xah&zg4duo&4s!f7k!o&14n(o%v)3avb-62^&=ogr1wi324h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'Pagos',
     'PQR',
     'Usuarios',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -84,8 +85,8 @@ DATABASES = {
         'NAME': 'ofipensiones',
         'USER': 'extintor',
         'PASSWORD': 'isis2503',
-        'HOST':"localhost",
-        'PORT': "5432"
+        'HOST':"10.75.80.3", # Cambiar por la ip del servidor (ip privada)
+        'PORT': ""
         
     }
 }
@@ -133,3 +134,24 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = "/login/auth0"
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "https://dev-g6wxby20kfu5bjya.us.auth0.com/v2/logout?returnTo=http%3A%2F%2F35.202.76.230:8080" #ip publica django
+
+SOCIAL_AUTH_TRAILING_SLASH = False # Remove end slash from routes
+SOCIAL_AUTH_AUTH0_DOMAIN = 'dev-g6wxby20kfu5bjya.us.auth0.com'
+SOCIAL_AUTH_AUTH0_KEY = 'PhYA0yQHWdNXb98i7DIbNrlDCXDH3vfw'
+SOCIAL_AUTH_AUTH0_SECRET = 'mnOkTrezh6B1VoozLN5yhTKEAUbaGS50gAdMN2EL9xQ-y2WjlpOAK0Rcn5Aoin6I'
+
+SOCIAL_AUTH_AUTH0_SCOPE = [
+    'openid',
+    'profile',
+    'email',
+    'role',
+]
+
+AUTHENTICATION_BACKENDS = {
+    'monitoring.auth0backend.Auth0',
+    'django.contrib.auth.backends.ModelBackend',
+}
