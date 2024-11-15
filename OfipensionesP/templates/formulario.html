@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba de Inyección SQL</title>
+</head>
+<body>
+    <h1>Prueba de Inyección SQL</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="nombre">Nombre del Producto:</label>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+
+        <label for="precio">Precio:</label>
+        <input type="text" id="precio" name="precio" required><br><br>
+
+        <label for="descripcion">Descripción:</label>
+        <input type="text" id="descripcion" name="descripcion" required><br><br>
+
+        <button type="submit">Crear Producto</button>
+    </form>
+</body>
+</html>
+```

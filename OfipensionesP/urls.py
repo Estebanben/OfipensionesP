@@ -24,3 +24,5 @@ urlpatterns = [
     path('pagos/',include('Pagos.urls')),
     path('pruebas/', pruebas_views.prueba_inyeccion_sql, name='prueba_inyeccion_sql'),
 ]
+
+
