@@ -8,17 +8,17 @@
 
 <body>
     <h1>Hijos del Padre</h1>
-    {% if hijos %}
+    {% if estudiantes %}
     <ul>
-        {% for hijo in hijos %}
+        {% for estudiante in hijos %}
         <li>
-            <strong>Nombre:</strong> {{ hijo.nombre }}<br>
-            <strong>Fecha de Nacimiento:</strong> {{ hijo.fecha_nacimiento }}<br>
-            <strong>Tipo de Documento:</strong> {{ hijo.tipo_d }}<br>
-            <strong>Documento:</strong> {{ hijo.documento }}<br>
-            <strong>Género:</strong> {{ hijo.get_genero_display }}<br>
-            <strong>Correo:</strong> {{ hijo.correo }}<br>
-            <strong>Saldo:</strong> {{ hijo.saldo }}
+            <strong>Nombre:</strong> {{ estudiante.nombre }}<br>
+            <strong>Fecha de Nacimiento:</strong> {{ estudiante.fecha_nacimiento }}<br>
+            <strong>Tipo de Documento:</strong> {{ estudiante.tipo_d }}<br>
+            <strong>Documento:</strong> {{ estudiante.documento }}<br>
+            <strong>Género:</strong> {{ estudiante.get_genero_display }}<br>
+            <strong>Correo:</strong> {{ estudiante.correo }}<br>
+            <strong>Saldo:</strong> {{ estudiante.saldo }}
         </li>
         {% endfor %}
     </ul>
