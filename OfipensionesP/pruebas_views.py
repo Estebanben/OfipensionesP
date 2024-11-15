@@ -12,4 +12,5 @@ def prueba_inyeccion_sql(request):
             return HttpResponse('Producto creado exitosamente.')
         except Exception as e:
             return HttpResponse(f'Error al crear el producto: {str(e)}')
-    return render(request, 'templates/formulario.html')
+    return render(request, 'formulario.html')
+
