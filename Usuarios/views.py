@@ -18,4 +18,4 @@ def hijos_del_padre(request):
         return render(request, 'hijos_del_padre.html', {'hijos': hijos})
     else:
         # Redirige a la página de inicio de sesión si no está autenticado
-        return redirect('login')
+        return render(request, 'hijos_del_padre.html', {'hijos': hijos})
