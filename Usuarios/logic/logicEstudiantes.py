@@ -1,7 +1,7 @@
 from ..models import Estudiante
 
-def getEstudiantes(self):
-    user = self.request.user
+def getEstudiantes(request):
+    user = request.user
     return Estudiante.objects.filter(padre=user)
 
 def createEstudiante(form):
