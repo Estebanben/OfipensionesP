@@ -19,7 +19,7 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/',views.home),
+    path('home/',views.home, name='home'),
     path('pagos/',include('Pagos.urls')),
     path('',include('Usuarios.urls')), #url estudiantes
     path(r'', include('django.contrib.auth.urls')),
