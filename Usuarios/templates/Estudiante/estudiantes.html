@@ -13,7 +13,7 @@
                     <table class="table table-hover">
                         <thead>
                             <tr style="color:#0E2EB0">
-                                <th>Variable</th>
+                                <th>Estudiantes</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -21,9 +21,9 @@
                             {% for estudiante in estudiantes_list %}
                             <tr>
                                 <td class="d-flex justify-content-between">
-                                    {{ estudiante.nombre }}
-                                    
+                                    {{ estudiante.padre }}
                                 </td>
+                                <td>{{ estudiante.nombre }}</td>
                             </tr>
                             {% endfor %}
 
@@ -32,7 +32,7 @@
 
                     <div style="text-align:center;">
                         <button type="button" class="btn btn-primary waves-effect waves-light"
-                            onClick=" window.location.href='/' ">
+                            onClick=" window.location.href='/home' ">
                             Back
                         </button>
                     </div>
