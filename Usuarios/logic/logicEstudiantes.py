@@ -3,7 +3,7 @@ from ..models import Estudiante, Padre
 def getEstudiantes(request):
     # Obtener la instancia del padre asociada al usuario
     try:
-        padre = Padre.objects.get(correo=request.user.correo)  # Ajusta el campo `user` según tu modelo Padre
+        padre = Padre.objects.get(correo=request.user.email)  # Ajusta el campo `user` según tu modelo Padre
     except Padre.DoesNotExist:
         return []  # Devuelve una lista vacía si no se encuentra al padre
 
