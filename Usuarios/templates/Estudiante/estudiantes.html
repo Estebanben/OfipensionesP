@@ -10,23 +10,32 @@
             <div class="panel panel-default">
                 <div class="panel-body">
 
-                    <table class="table table-hover">
+                    <table>
                         <thead>
-                            <tr style="color:#0E2EB0">
-                                <th>Estudiantes</th>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Fecha de Nacimiento</th>
+                                <th>Tipo de Documento</th>
+                                <th>Documento</th>
+                                <th>Género</th>
+                                <th>Correo</th>
+                                <th>Saldo</th>
+                                <th>Padre Asociado</th>
                             </tr>
                         </thead>
                         <tbody>
-
                             {% for estudiante in estudiantes_list %}
                             <tr>
-                                <td class="d-flex justify-content-between">
-                                    {{ estudiante.padre }}
-                                </td>
                                 <td>{{ estudiante.nombre }}</td>
+                                <td>{{ estudiante.fecha_nacimiento }}</td>
+                                <td>{{ estudiante.tipo_d }}</td>
+                                <td>{{ estudiante.documento }}</td>
+                                <td>{{ estudiante.get_genero_display }}</td>
+                                <td>{{ estudiante.correo }}</td>
+                                <td>{{ estudiante.saldo }}</td>
+                                <td>{{ estudiante.padre.nombre }}</td>
                             </tr>
                             {% endfor %}
-
                         </tbody>
                     </table>
 
