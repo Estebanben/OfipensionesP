@@ -15,14 +15,5 @@ def estudiantes_list(request):
         return render(request, 'Estudiante/estudiantes.html', context)
     else:
         return HttpResponse('No tienes permisos para ver esta pagina')
-# Create your views here.
-# @login_required
-# def estudiantes_list(request):
-#     role = getRole(request)
-#     if role == 'Padre':
-#         estudiantes = getEstudiantes(request)
-#         context = {'estudiantes_list': estudiantes}
-#         return render(request, 'Estudiante/estudiantes.html', context)
-#     else:
-#         return HttpResponse('No tienes permisos para ver esta pagina')
+
         
