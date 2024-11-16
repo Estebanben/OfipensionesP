@@ -1,82 +1,44 @@
-<!DOCTYPE html>
-<html lang="es">
+<div class="content">
+    
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Todos los Estudiantes</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
+    <br>
 
-        h1 {
-            color: #333;
-        }
+    <div class="page-content-wrapper">
+        <div class="container">
+            <!-- Content page -->
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
+            <div class="panel panel-default">
+                <div class="panel-body">
 
-        th,
-        td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: left;
-        }
+                    <table class="table table-hover">
+                        <thead>
+                            <tr style="color:#0E2EB0">
+                                <th>Variable</th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-        th {
-            background-color: #f4f4f4;
-        }
+                            {% for estudiante in estudiantes_list %}
+                            <tr>
+                                <td class="d-flex justify-content-between">
+                                    {{ estudiante.nombre }}
+                                    
+                                </td>
+                            </tr>
+                            {% endfor %}
 
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
+                        </tbody>
+                    </table>
 
-        tr:hover {
-            background-color: #f1f1f1;
-        }
-    </style>
-</head>
+                    <div style="text-align:center;">
+                        <button type="button" class="btn btn-primary waves-effect waves-light"
+                            onClick=" window.location.href='/' ">
+                            Back
+                        </button>
+                    </div>
 
-<body>
-    <h1>Lista de Todos los Estudiantes</h1>
-
-    {% if estudiantes_list %}
-    <table>
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Fecha de Nacimiento</th>
-                <th>Tipo de Documento</th>
-                <th>Documento</th>
-                <th>Género</th>
-                <th>Correo</th>
-                <th>Saldo</th>
-                <th>Padre Asociado</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for estudiante in estudiantes_list %}
-            <tr>
-                <td>{{ estudiante.nombre }}</td>
-                <td>{{ estudiante.fecha_nacimiento }}</td>
-                <td>{{ estudiante.tipo_d }}</td>
-                <td>{{ estudiante.documento }}</td>
-                <td>{{ estudiante.genero }}</td>
-                <td>{{ estudiante.correo }}</td>
-                <td>{{ estudiante.saldo }}</td>
-                <td>{{ estudiante.padre.nombre }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    {% else %}
-    <p>No hay estudiantes registrados en la base de datos.</p>
-    {% endif %}
-</body>
-
-</html>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
