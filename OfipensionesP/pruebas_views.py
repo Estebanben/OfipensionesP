@@ -12,11 +12,11 @@ def prueba_inyeccion_sql(request):
 
         for palabra in PALABRAS_RESERVADAS:
             if any(palabra in campo for campo in [nombre, precio, descripcion]):
-                return HttpResponse('Error: Entrada no permitida debido a palabras reservadas.', status=400)
+                return HttpResponse('Error: Entrada no permitida debido a palabras reservadas', status=400)
 
         try:
             Producto.objects.create(nombre=nombre, valor=precio, dscripcion=descripcion)
-            return HttpResponse('Producto creado exitosamente.')
+            return HttpResponse('El producto creado exitosamente')
         except Exception as e:
             return HttpResponse(f'Error al crear el producto: {str(e)}')
 
