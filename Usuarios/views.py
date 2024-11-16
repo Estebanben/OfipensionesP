@@ -10,7 +10,7 @@ from Autenticacion.auth0backend import getRole
 def estudiantes_list(request):
     role = getRole(request)
     if role == 'Padre':
-        estudiantes = getEstudiantes()
+        estudiantes = getEstudiantes(request)
         context = {'estudiantes_list': estudiantes}
         return render(request, 'Estudiante/estudiantes.html', context)
     else:
